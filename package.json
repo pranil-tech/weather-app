@@ -21,8 +21,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-  },  
+  },
+  "homepage": "https://pranil-tech.github.io/weather-app",
+  
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -43,6 +46,7 @@
   },
   "devDependencies": {
     "eslint": "^8.56.0",
-    "eslint-config-react-app": "^7.0.1"
+    "eslint-config-react-app": "^7.0.1",
+    "gh-pages": "^6.1.1"
   }
 }
