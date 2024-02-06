@@ -1,32 +1,50 @@
-## Weather App
+# Weather Forecast Dashboard
 
-A simple weather application built with React.js, fetching data from the OpenWeather API to display current weather and a 5-day forecast.
+Welcome to the Weather Forecast Dashboard project! This application allows users to view current weather details and a 5-day forecast for a selected city.
 
 ## Features
 
-- Display current weather information for a selected city.
-- View a 5-day forecast, including date, average temperature, weather description, and an appropriate weather icon.
-- Toggle between °C and °F.
+- View current weather details of a city, including:
+  - Current temperature
+  - Minimum and maximum temperature
+  - Humidity
+  - Wind speed
+  - Description of the weather
+  - Weather icon
+  
+- View a 5-day forecast for the selected city, displaying:
+  - Day Date
+  - Average temperature
+  - Description of the weather
+  - Weather icon
 
-## Prerequisites
+- Toggle between Celsius and Fahrenheit units
 
-- Node.js and npm installed.
-- icons file downloaded.
+## Technologies Used
 
-## How to Run Locally
+- HTML
+- CSS
+- JavaScript
+- ReactJS
 
-1. # Clone the repository:
+## Getting Started
 
-   ```bash
-   git clone https://github.com/your-username/weather-app.git
+To run this project locally, follow these steps:
 
-2. # Navigate to the project directory
+1. Clone this repository to your local machine
+2. Install dependencies using npm: `npm install`
+3. Start the development server: `npm start`
+4. Note : This project uses a weather data API. When hosting the web application live, make sure to use your own API key and URL
+5. Open your browser and visit `http://localhost:3000` to view the application.
 
-3. # Install dependencies
-   npm install
-   
-5. # Set up your API key:
-     REACT_APP_WEATHER_API_KEY=your-api-key
+## Deployment
 
-6. # start the application  :
-    npm start
+This project is deployed using GitHub Pages 
+You can access the live version [here](https://pranil-tech.github.io/weather-app/).
+
+
+
+## Acknowledgments
+
+Special thanks to [OpenWeatherMap](https://openweathermap.org/) for providing the weather data API used in this project.
+
