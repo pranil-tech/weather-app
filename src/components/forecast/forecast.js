@@ -11,6 +11,11 @@ const WEEK_DAYS = [
   "Sunday",
 ];
 
+const getDateFromTimestamp = (timestamp) => {
+  const date = new Date(timestamp * 1000);
+  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+};
+
 const Forecast = ({ data }) => {
   if (!data || !data.list) {
     return <div>Loading...</div>;
@@ -39,7 +44,7 @@ const Forecast = ({ data }) => {
               <img
                 alt="forecast"
                 className="forecast-icon"
-                src={`./icons/${item.weather[0].icon}.png`}
+                src={`./weather-app/icons/${item.weather[0].icon}.png`}
               />
             </div>
             <div className="bottom">
@@ -57,11 +62,6 @@ const Forecast = ({ data }) => {
       </div>
     </div>
   );
-};
-
-const getDateFromTimestamp = (timestamp) => {
-  const date = new Date(timestamp * 1000);
-  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 };
 
 export default Forecast;

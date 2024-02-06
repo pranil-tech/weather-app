@@ -13,7 +13,8 @@ function App() {
     const getDefaultWeatherData = async () => {
       const mumbaiWeatherFetch = fetch(`${WEATHER_API_URL}/weather?q=Mumbai&appid=${WEATHER_API_KEY}&units=metric`);
 
-      const mumbaiForecastFetch = fetch(`${WEATHER_API_URL}/onecall?lat=19.0760&lon=72.8777&exclude=current,minutely,hourly,alerts&appid=${WEATHER_API_KEY}&units=metric`);
+      const mumbaiForecastFetch = fetch(`${WEATHER_API_URL}/forecast?q=Mumbai&appid=${WEATHER_API_KEY}&units=metric`);
+      
       try {
         const [mumbaiWeatherResponse, mumbaiForecastResponse] = await Promise.all([
           mumbaiWeatherFetch,
@@ -23,7 +24,7 @@ function App() {
         const mumbaiForecastData = await mumbaiForecastResponse.json();
 
         setCurrentWeather({ city: 'Mumbai', ...mumbaiWeatherData });
-        setForecast({ city: 'Mumbai', forecast: mumbaiForecastData.daily });
+        setForecast({ city: 'Mumbai', ...mumbaiForecastData });
       } catch (error) {
         console.error('Error fetching default weather data:', error);
       }
@@ -59,7 +60,11 @@ function App() {
     <div className="container">
       <Search onSearchChange={handleOnSearchChange} />
       {currentWeather && <CurrentWeather data={currentWeather} />}
-      {forecast && <Forecast data = {forecast} />}
+      {forecast !== null ? (
+        forecast && <Forecast data={forecast} />
+      ) : (
+        <Forecast data={{ city: 'Mumbai', list: [] }} />
+      )}
     </div>
   );
 }
