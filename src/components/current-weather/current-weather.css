@@ -1,11 +1,22 @@
+.current-weather{
+  display: flex;
+  flex-direction: column;
+}
+
 .weather {
-  width: 300px;
+  width: 400px;
   border-radius: 6px;
   box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
   color:  white;
   background-color: #333;
-  margin: 20px auto 0 auto;
-  padding: 0 20px 20px 20px;
+  margin: auto;
+  padding: 10px 20px;
+}
+
+.title{
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
 }
 
 .top,
@@ -13,6 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
 }
 
 .city{
@@ -20,7 +32,6 @@
   font-size: 25px;
   line-height: 1;
   margin: 0;
-  letter-spacing: 1px;
 }
 
 .weather-description {
@@ -28,6 +39,7 @@
   font-size: 25px;
   line-height: 1;
   margin: 5px 0;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 .weather-icon{
@@ -64,7 +76,7 @@
 }
 
 .day {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 400;
   margin: 5px 0;
 }

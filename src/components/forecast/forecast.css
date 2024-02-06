@@ -1,4 +1,5 @@
 .forecast-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +10,11 @@
   margin: 20px auto;
   font-size: 25px;
   font-weight: 600;
-  padding: 50px;
+}
+.toggle-container{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .daily {
@@ -19,82 +24,84 @@
   gap: 20px;
 }
 
-.forecast-box {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  height: 200px;
+.forecast-box{
+  width: 400px;
   border-radius: 6px;
-  box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
+  box-shadow: 10px -2px 20px 2px rgba(0, 0, 0, 0.3);
   color: white;
   background-color: #333;
-  padding: 10px;
-  margin-bottom: 20px;
+  margin: 10px; 
+  padding: 20px;
+  text-align: center;
 }
 
-.forecast-box .top,
-.forecast-box .bottom {
+.forecast-city{
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.forecast-top{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
 }
 
-.forecast-box .info {
+.forecast-city-info{
   display: flex;
   flex-direction: column;
 }
 
-.forecast-box .city {
-  font-weight: 600;
-  font-size: 18px;
+.forecast-city{
+  font-weight: 700;
+  font-size: 25px;
   line-height: 1;
-  margin-bottom: 5px;
+  margin: 5px 0;
+  letter-spacing: 1px;
+  text-align: left;
 }
 
-.forecast-box .day {
-  font-weight: 500;
-  font-size: 15px;
-  margin-bottom: 5px;
-}
-
-.forecast-box .date {
-  font-size: 12px;
-  margin-bottom: 5px;
-}
-
-.forecast-box .weather-description {
-  font-weight: 300;
-  font-size: 15px;
-  margin-bottom: 5px;
-}
-
-.forecast-box .forecast-icon {
-  width: 70px;
-}
-
-.forecast-box .bottom {
-  margin-top: 10px;
-}
-
-.forecast-box .daily-details-grid-item {
+.time-info{
   display: flex;
-  justify-content: space-between;
 }
 
-.forecast-box .parameter-label {
-  font-size: 12px;
+.forecast-day,
+.forecast-date{
   font-weight: 400;
+  font-size: 12px;
+  text-align: left;
 }
 
-.forecast-box .parameter-value {
-  font-size: 14px;
+.forecast-description{
+  font-weight: 400;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 25px;
+  line-height: 1;
+  margin: 5px 0;
+  padding: 5px 0;
+}
+
+.forecast-bottom{
+  display: flex;
+  flex-direction: column;
+}
+
+.daily-details-grid-item{
+  display: flex;
+  flex-direction: column;
+}
+
+.parameter-label{
+  text-align: center;
+  font-size: 20px;
   font-weight: 600;
 }
 
-@media (max-width: 768px) {
-  .daily {
-    flex-direction: column;
-    align-items: center;
-  }
+.parameter-value{
+  text-align: center;
+  font-size: 20px;
+  font-family: 500;
 }
-

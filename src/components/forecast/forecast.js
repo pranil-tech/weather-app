@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./forecast.css";
 
 const WEEK_DAYS = [
@@ -17,6 +17,12 @@ const getDateFromTimestamp = (timestamp) => {
 };
 
 const Forecast = ({ data }) => {
+  const [isCelsius, setIsCelsius] = useState(true);
+
+  const toggleTemperatureUnit = () => {
+    setIsCelsius((prevIsCelsius) => !prevIsCelsius);
+  };
+
   if (!data || !data.list) {
     return <div>Loading...</div>;
   }
@@ -29,15 +35,29 @@ const Forecast = ({ data }) => {
   return (
     <div className="forecast-container">
       <label className="title">5 Day Forecast</label>
+      <div className="toggle-container">
+        <label>
+          <input
+            type="checkbox"
+            checked={isCelsius}
+            onChange={toggleTemperatureUnit}
+          />
+          <span>Toggle for °C/°F</span>
+        </label>
+      </div>
       <div className="daily">
         {data.list.slice(0, 5).map((item, idx) => (
           <div key={idx} className="forecast-box">
-            <div className="top">
-              <div className="info">
-                <label className="city">{data.city.name}</label>
-                <span className="day">{forecastDays[idx]}</span>
-                <label className="date">{getDateFromTimestamp(item.dt)}</label>
-                <span className="weather-description">
+            <div className="forecast-top">
+              <div className="forecast-city-info">
+                <label className="forecast-city">{data.city.name}</label>
+                <div className="time-info">
+                  <span className="forecast-day">{forecastDays[idx]}, </span>
+                  <label className="forecast-date">
+                    {getDateFromTimestamp(item.dt)}
+                  </label>
+                </div>
+                <span className="forecast-description">
                   {item.weather[0].description}
                 </span>
               </div>
@@ -47,14 +67,14 @@ const Forecast = ({ data }) => {
                 src={`./weather-app/icons/${item.weather[0].icon}.png`}
               />
             </div>
-            <div className="bottom">
+            <div className="forecast-bottom">
               <div className="daily-details-grid-item">
-                <span className="parameter-label">Max Temp</span>
-                <span className="parameter-value">{item.main.temp_max} °C</span>
-              </div>
-              <div className="daily-details-grid-item">
-                <span className="parameter-label">Min Temp</span>
-                <span className="parameter-value">{item.main.temp_min}</span>
+                <span className="parameter-label">Average Temperature</span>
+                <span className="parameter-value">
+                  {isCelsius
+                    ? `${item.main.temp} °C`
+                    : `${(item.main.temp * 9) / 5 + 32} °F`}
+                </span>
               </div>
             </div>
           </div>
