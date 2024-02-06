@@ -24,7 +24,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://pranil-tech.github.io/weather-app",
   
   "eslintConfig": {
     "extends": [
