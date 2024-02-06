@@ -1,92 +1,95 @@
 .weather {
-    width: 300px;
-    border-radius: 6px;
-    box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
-    color:  white;
-    background-color: #333;
-    margin: 20px auto 0 auto;
-    padding: 0 20px 20px 20px;
-  }
+  width: 300px;
+  border-radius: 6px;
+  box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
+  color:  white;
+  background-color: #333;
+  margin: 20px auto 0 auto;
+  padding: 0 20px 20px 20px;
+}
 
-  .top,
-  .bottom{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.top,
+.bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .city{
-    font-weight: 600;
-    font-size: 25px;
-    line-height: 1;
-    margin: 0;
-    letter-spacing: 1px;
-  }
+.city{
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 1px;
+}
 
-  .weather-description {
-    font-weight: 300;
-    font-size: 25px;
-    line-height: 1;
-    margin: 5px 0;
-  }
+.weather-description {
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 1;
+  margin: 5px 0;
+}
 
-  .weather-icon{
-    width: 100px;
-  }
+.weather-icon{
+  width: 100px;
+}
 
-  .temperature{
-    font-weight: 600;
-    font-size: 40px;
-    width: auto;
-    margin: 5px 0;
-  }
+.temperature{
+  font-weight: 600;
+  font-size: 40px;
+  width: auto;
+  margin: 5px 0;
+}
 
-  .details{
-    padding-left: 20px;
-    width: 50%;
-  }
-  .parameter-row{
-    display: flex;
-    justify-content: space-between;
-  }
-  .parameter-label{
-    text-align: left;
-    font-size: 15px;
-    font-weight: 400;
-  }
-  .parameter-value{
-    text-align: left;
-    font-size: 15px;
-    font-weight: 600;
-  }
-  .day {
-    font-size: 10px;
-    font-weight: 400;
-    margin: 5px 0;
-  }
+.details{
+  padding-left: 20px;
+  width: 50%;
+}
 
-  .month {
-    font-size: 10px;
-    font-weight: 300;
-    margin: 5px 0;
-  }
+.parameter-row{
+  display: flex;
+  justify-content: space-between;
+}
 
-  .toggle-container {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-  }
-  .toggle-container label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-size: 14px;
-    color: white;
-  }
-  .toggle-container input {
-    margin-right: 5px;
-  }
-  .toggle-container span {
-    margin-left: 5px;
-  }
-  
+.parameter-label{
+  text-align: left;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.parameter-value{
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.day {
+  font-size: 10px;
+  font-weight: 400;
+  margin: 5px 0;
+}
+
+.month {
+  font-size: 10px;
+  font-weight: 300;
+  margin: 5px 0;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.toggle-container label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+}
+.toggle-container input {
+  margin-right: 5px;
+}
+.toggle-container span {
+  margin-left: 5px;
+}

@@ -1,5 +1,3 @@
-// App.js
-
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Search from './components/search/search';
@@ -13,12 +11,9 @@ function App() {
 
   useEffect(() => {
     const getDefaultWeatherData = async () => {
-      const mumbaiWeatherFetch = fetch(
-        `${WEATHER_API_URL}/weather?q=Mumbai&appid=${WEATHER_API_KEY}&units=metric`
-      );
-      const mumbaiForecastFetch = fetch(
-        `${WEATHER_API_URL}/onecall?lat=19.0760&lon=72.8777&exclude=current,minutely,hourly,alerts&appid=${WEATHER_API_KEY}&units=metric`
-      );
+      const mumbaiWeatherFetch = fetch(`${WEATHER_API_URL}/weather?q=Mumbai&appid=${WEATHER_API_KEY}&units=metric`);
+
+      const mumbaiForecastFetch = fetch(`${WEATHER_API_URL}/onecall?lat=19.0760&lon=72.8777&exclude=current,minutely,hourly,alerts&appid=${WEATHER_API_KEY}&units=metric`);
       try {
         const [mumbaiWeatherResponse, mumbaiForecastResponse] = await Promise.all([
           mumbaiWeatherFetch,
@@ -42,27 +37,29 @@ function App() {
     const currentWeatherFetch = fetch(
       `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
+    
     const forecastFetch = fetch(
-      `${WEATHER_API_URL}/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&appid=${WEATHER_API_KEY}&units=metric`
+      `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
 
     Promise.all([currentWeatherFetch, forecastFetch])
-      .then(async (responses) => {
-        const [currentWeatherResponse, forecastResponse] = responses;
-        const currentWeatherData = await currentWeatherResponse.json();
-        const forecastData = await forecastResponse.json();
+      .then(async (response) => {
+        const weatherResponse = await response[0].json();
+        const forecastResponse = await response[1].json();
 
-        setCurrentWeather({ city: searchData.label, ...currentWeatherData });
-        setForecast({ city: searchData.label, forecast: forecastData.daily });
+        setCurrentWeather({ city: searchData.label, ...weatherResponse });
+        setForecast({ city: searchData.label, ...forecastResponse });
       })
       .catch(console.log);
   };
+  console.log(currentWeather);
+  console.log(forecast);
 
   return (
     <div className="container">
       <Search onSearchChange={handleOnSearchChange} />
       {currentWeather && <CurrentWeather data={currentWeather} />}
-      {forecast && <Forecast forecastData={forecast} />}
+      {forecast && <Forecast data = {forecast} />}
     </div>
   );
 }
